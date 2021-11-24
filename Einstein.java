@@ -13,12 +13,16 @@ import java.util.Scanner;
 
 final class Einstein {
 
-public static final double lSpeedSecond = Math.pow(10, 8);
+    /** Second half of speed of light equation.*/
+    public static final double lSpeedSecond = Math.pow(10, 8);
 
-public static final double lSpeedFirst = 2.998;
+    /** First half of speed of light equation.*/
+    public static final double lSpeedFirst = 2.998;
 
-public static final double lSpeedBoth = lSpeedFirst * lSpeedSecond;
+    /** Variable that combines the two making the speed of light.*/
+    public static final double lSpeedBoth = lSpeedFirst * lSpeedSecond;
 
+    /** Variable of speed of light equation to the power of two, second half of e=mc^2.*/
     static final double lightSpeed = (Math.pow(lSpeedBoth, 2));
 
     /**
@@ -28,7 +32,7 @@ public static final double lSpeedBoth = lSpeedFirst * lSpeedSecond;
     *
     */
 
-private Einstein() {
+    private Einstein() {
         throw new IllegalStateException("Cannot be instantiated");
     }
 
@@ -41,28 +45,27 @@ private Einstein() {
 
     public static void main(final String[] args) {
 
-    // variables.
-    final double energyOut;
+        // variables.
+        final double energyOut;
 
-    final Scanner myObj = new Scanner(System.in);
+        final Scanner myObj = new Scanner(System.in);
 
-    //user input
-    System.out.println("Enter the mass of an object in kilograms: ");
+        // user input.
+        System.out.println("Enter the mass of an object in kilograms: ");
 
-    try {
-        final float Mass = myObj.nextFloat();
+        try {
+            // reads input.
+            final float mass = myObj.nextFloat();
 
-        double energy = Mass * lightSpeed;
+            final double energy = mass * lightSpeed;
 
-        System.out.println(Mass + "kg of mass would produce " + energy + "J of energy.");
+            System.out.println(mass + "kg of mass would produce " + energy + "J of energy.");
+        }
 
+        catch (java.util.InputMismatchException errorCode) {
+            System.out.println("Sorry, that was not a number.");
+        }
         System.out.println("\nDone");
     }
-
-    catch (java.util.InputMismatchException errorCode) {
-        System.out.println("Sorry, that was not a number.");
-        System.out.println("\nDone");  
-    }
- }
 }
 
