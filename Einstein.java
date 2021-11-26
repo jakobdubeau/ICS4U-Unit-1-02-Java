@@ -1,5 +1,5 @@
 /*
-
+*
 * The Einstein program lets the user enter the mass of an object
 * and then sees how much energy could be released from that object.
 *
@@ -11,19 +11,23 @@
 
 import java.util.Scanner;
 
+/**
+* Einstein program calculates energy released from an object using inputted mass and speed of
+* light equation.
+*/
 final class Einstein {
 
     /** Second half of speed of light equation.*/
-    public static final double lSpeedSecond = Math.pow(10, 8);
+    public static final double SPEED_SECOND = Math.pow(10, 8);
 
     /** First half of speed of light equation.*/
-    public static final double lSpeedFirst = 2.998;
+    public static final double SPEED_FIRST = 2.998;
 
     /** Variable that combines the two making the speed of light.*/
-    public static final double lSpeedBoth = lSpeedFirst * lSpeedSecond;
+    public static final double SPEED_BOTH = SPEED_FIRST * SPEED_SECOND;
 
     /** Variable of speed of light equation to the power of two, second half of e=mc^2.*/
-    static final double lightSpeed = (Math.pow(lSpeedBoth, 2));
+    static final double LIGHT_SPEED = Math.pow(SPEED_BOTH, 2);
 
     /**
     * Prevents instantiation.
@@ -57,7 +61,7 @@ final class Einstein {
             // reads input.
             final float mass = myObj.nextFloat();
 
-            final double energy = mass * lightSpeed;
+            final double energy = mass * LIGHT_SPEED;
 
             System.out.println(mass + "kg of mass would produce " + energy + "J of energy.");
         }
